@@ -1,0 +1,48 @@
+:: StoryTitle
+0408
+
+
+:: StoryData
+{
+  "ifid": "FF0E937A-04CC-42F0-9CCA-BBAFA61C5B2B",
+  "format": "Harlowe",
+  "format-version": "3.3.9",
+  "start": "start",
+  "zoom": 1
+}
+
+
+:: A1 {"position":"300,250","size":"100,100"}
+사과의 갯수:$item
+(link-goto:"사과를 줍는다","A2")[
+(set:$item to $item+1)]
+
+
+:: A2 {"position":"300,375","size":"100,100"}
+현재 아이템 수: $item
+
+(link-goto: "사과를 줍는다", "A3")[
+  (set: $item to $item + 1)
+]
+
+
+:: A3 {"position":"300,500","size":"100,100"}
+현재 아이템 수: $item
+
+(link-goto: "사과를 줍는다", "A4")[
+  (set: $item to $item + 1)
+]
+
+
+:: start {"position":"150,250","size":"100,100"}
+(set:$item to 0)
+
+10초 동안 사과를 모으는 게임입니다
+
+(link: "모으기")[
+  (set: $time to 10)
+  (goto: "A1")
+]
+
+<img="https://github.com/d0-op/-/blob/main/이미지.jpeg?raw=true">
+
